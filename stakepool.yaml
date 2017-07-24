@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: stakepool
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: stakepool
+    spec:
+      containers:
+      - name: votewallet
+        image: isaacg9277/test:stakepoolwalletv9
+        ports:
+        - containerPort: 19110
+        - containerPort: 19113
+      - name: votewallet2
+        image: isaacg9277/test:stakepoolwalletv9
+        ports:
+        - containerPort: 19114
+        - containerPort: 19115
+      - name: mysqldb
+        image: isaacg9277/stakepoolmysqlv1
+        ports:
+        - containerPort: 3306

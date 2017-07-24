@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: votewallet 
+spec:
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        run: votewallet
+    spec:
+      containers:
+      - name: votewallet
+        image: isaacg9277/test:stakepoolwalletv5
+        ports:
+        - containerPort: 19110
+        - containerPort: 19113 
