@@ -1,3 +1,9 @@
 FROM nginx
 
-ADD nginx.conf /nginx.conf
+# Add config file. Need to make sure that's the right directory..
+ADD nginx.conf /etc/nginx.conf
+
+#Expose ports
+EXPOSE 80
+
+CMD service nginx start
